@@ -256,8 +256,11 @@ def main():
             # GLUT Window Initialization
             glutInit()
             glutInitWindowSize(display_width,display_height)
-            glutInitWindowPosition((glutGet(GLUT_SCREEN_WIDTH)-display_width)/2,(glutGet(GLUT_SCREEN_HEIGHT)-display_height)/2)
-            glutCreateWindow("Plotlety")
+            try:
+                glutInitWindowPosition((glutGet(GLUT_SCREEN_WIDTH)-display_width)/2,(glutGet(GLUT_SCREEN_HEIGHT)-display_height)/2)
+            except Exception as e:
+                pass
+            glutCreateWindow(b"Plotlety")
             if "y" not in function:
                 # Initialize OpenGL graphics state for 2D graphics
                 init2D()
